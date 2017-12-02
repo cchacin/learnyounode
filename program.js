@@ -1,8 +1,13 @@
 var fs = require('fs');
+var path = require('path');
 
-fs.readFile(process.argv[2], function(err, content) {
+fs.readdir(process.argv[2], function(err, list) {
     if (err) {
         return console.log(err)
     }
-    console.log(content.toString().split('\n').length - 1);
+    list.forEach(file => {
+        if (path.extname(file) == '.' + process.argv[3]) {
+            console.log(file);
+        }
+    });
 });

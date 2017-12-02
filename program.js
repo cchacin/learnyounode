@@ -1,7 +1,5 @@
-var total = 0;
-process.argv.forEach((element, index) => {
-    if(index>=2) {
-        total += +process.argv[index];
-    }
-});
-console.log(total);
+var fs = require('fs');
+
+var myfile = fs.readFileSync(process.argv[2]).toString().split('\n');
+
+console.log(myfile.length - 1);

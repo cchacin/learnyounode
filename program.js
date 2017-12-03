@@ -1,13 +1,5 @@
-var fs = require('fs');
-var path = require('path');
+var mymodule = require('./mymodule')
 
-fs.readdir(process.argv[2], function(err, list) {
-    if (err) {
-        return console.log(err)
-    }
-    list.forEach(file => {
-        if (path.extname(file) == '.' + process.argv[3]) {
-            console.log(file);
-        }
-    });
+mymodule(process.argv[2], process.argv[3], function(err, data) {
+    console.log(data);
 });
